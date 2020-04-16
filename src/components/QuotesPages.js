@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import DisplyaCharacter from './DisplayCharacter'
 
 import './QuotesPages.css'
 
@@ -29,18 +30,14 @@ class QuotesPages extends React.Component {
     }
     render() {
         //console.log(this)
-        const {simpsons} = this.state
+        //const {simpsons} = this.state
         return (
             <div className="QuotesPages">
-                {simpsons.map((simpson) => console.log(simpson) || (
-                    <div>
-                        <p key={simpson.character}>{simpson.character}</p>
-                        <p key={simpson.quote}>{simpson.quote}</p>
-                        <img src={simpson.image} alt={simpson.character} />
-                    </div>
+                {/* {simpsons.map((simpson) => console.log(simpson) || (<p>{simpson.character}</p>))} */}
+                {this.state.simpsons.map((simpson) => (
+                    <DisplyaCharacter simpson={simpson} key={simpson.quote}/>
                     
-                    )
-                )}
+                ))}
                 <div>
                     <button type="button" onClick={this.getCharacters}>get Simpsons</button>
                 </div>
